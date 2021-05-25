@@ -1,0 +1,27 @@
+{
+  "name": "food_delivery_web_app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-generator": "^4.16.1",
+    "express-handlebars": "^5.3.2",
+    "morgan": "^1.10.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/attainu/backend-project-sadaf-jamal-au16.git"
+  },
+  "author": "sunil joshi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/attainu/backend-project-sadaf-jamal-au16/issues"
+  },
+  "homepage": "https://github.com/attainu/backend-project-sadaf-jamal-au16#readme"
+}
