@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" href="/partner/dashboard">Partner dashboard</a>
+          <a class="nav-link active" href="/partner/dashboard">Partner Dashboard</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/orders">Orders</a>
@@ -30,7 +30,6 @@
     </div>
   </div>
 </nav>
-
 <div>
   <h1>{{restaurantName}}</h1>
   <p><strong>Email: {{email}}</strong></p>
@@ -62,29 +61,45 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
-        <form action="/add" method="POST">
+        <form action="/partner/item/add" method="POST" id="additemForm">
           <div class="mb-3">
             <label for="title" class="col-form-label">Title</label>
-            <input type="text" class="form-control" id="title">
+            <input type="text" name="title" class="form-control" id="title">
           </div>
           <div class="mb-3">
             <label for="description" class="col-form-label">Description</label>
-            <input type="text" class="form-control" id="description">
+            <input type="text" name="description" class="form-control" id="description">
           </div>
           <div class="mb-3">
             <label for="price" class="col-form-label">Price</label>
-            <input type="number" class="form-control" id="price">
+            <input type="number" name="price" class="form-control" id="price">
           </div>
           <div class="mb-3">
             <label for="itemImage" class="col-form-label">Upload Item Image</label>
-            <input type="file" class="form-control" id="itemImage">
+            <input type="file" name="itemimage" class="form-control" id="itemImage">
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-success">Add</button>
+            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
           </div>
         </form>
       </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Add</button>
-      </div>
+
     </div>
   </div>
 </div>
+
+<script>
+
+const form = document.getElementById('additemForm')
+
+{{!-- form.addEventListener('submit', (e) => {
+
+  alert('Closing')
+  const modal = document.getElementById('addItemModal')
+
+  modal.hide();
+
+}) --}}
+
+</script>

@@ -5,6 +5,11 @@ const itemRouter = require('./item');
 router.get('/signUp', (req, res) => {
     res.render('partnerSignUp');
 })
+router.get('/dashboard', (req, res) => {
+    res.render('partnerDashboard');
+})
+
+
 
 router.post('/dashboard', (req, res) => {
     const newPartner = new partner({
@@ -19,11 +24,7 @@ router.post('/dashboard', (req, res) => {
     res.render('partnerDashboard', newPartner);
 })
 
-// router.use('/item', itemRouter);
-
-router.post('/add', (req, res) => {
-    res.status(201).json({'success': true});
-});
+router.use('/item', itemRouter);
 
 // exporting route
 module.exports = router;

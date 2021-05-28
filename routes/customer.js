@@ -1,21 +1,19 @@
 const router = require('express').Router()
-const partner = require('../models/customer')
+const customer = require('../models/customer')
 
 router.get('/signUp', (req, res) => {
     res.render('customerSignUp');
 })
 
 router.post('/dashboard', (req, res) => {
-    const newPartner = new partner({
-        restaurantName: req.body.restaurantname,
+    const newCustomer = new customer({
+        Name: req.body.name,
         email: req.body.email,
-        address: req.body.address,
         password: req.body.password,
-        confirmPassword: req.body.cnfrmpassword,
-        items: []
+        confirmPassword: req.body.cnfrmpassword
     })
-    newPartner.save()
-    res.render('partnerDashboard', newPartner);
+    newCustomer.save()
+    res.render('customerDashboard', newCustomer);
 })
 
 // exporting route

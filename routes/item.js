@@ -1,7 +1,6 @@
 const router = require('express').Router();
+const {addItem} = require("../controllers/itemController");
 
-router.post('/add', (req, res) => {
-    res.render('partnerDashboard');
-});
+router.post('/add', addItem);
 
 module.exports = router;
