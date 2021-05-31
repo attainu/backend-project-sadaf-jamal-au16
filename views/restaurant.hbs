@@ -1,0 +1,65 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+        <img src="/images/navbar-image/burger.png" alt="logo" class="d-inline-block align-text-top" width="30" height="24">
+        Hungry
+    </a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Restaurant Menu</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/login">Login</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/customer">SignUp</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="card mb-3 w-100">
+  <div class="row g-0">
+    <div class="col-md-4">
+      <img src="{{imageUrl}}" alt="restaurant image" class="w-100">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title">{{restaurantName}}</h5>
+        <p class="card-text">Email: {{email}}</p>
+        <p class="card-text">Address: {{address}}</p>
+        {{!-- <p class="card-text"><small class="text-muted">Note: Hungry holds all Rights to remove partner in case of misuse of platform</small></p> --}}
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row row-cols-1 row-cols-md-5 g-2 mx-1 mb-5">
+  {{#each items}}
+    <div class="col">
+      <div class="card h-100 w-100" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{this.itemName}}</h5>
+          <p class="card-text">{{this.price}}</p>
+          {{!-- <a href="#" class="btn btn-success">Edit Item</a> --}}
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <p class="text-center w-100 fs-4 fw-bolder">no items listed for above restaurant</p>
+  {{/each}}
+</div>

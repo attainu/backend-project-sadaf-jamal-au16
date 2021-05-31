@@ -4,29 +4,68 @@
         <img src="/images/navbar-image/burger.png" alt="logo" class="d-inline-block align-text-top" width="30" height="24">
         Hungry
     </a>
-    <button
-      class="navbar-toggler"
-      type="button"
-      data-bs-toggle="collapse"
-      data-bs-target="#navbarSupportedContent"
-      aria-controls="navbarSupportedContent"
-      aria-expanded="false"
-      aria-label="Toggle navigation"
-    >
-      <span class="navbar-toggler-icon"></span>
-    </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" href="/partner/signUp">Partner With Us</a>
+          <a class="nav-link active" href="/partner">Partner With Us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/customer/signUp">SignUp</a>
+          <a class="nav-link active" href="/customer">SignUp</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
+
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="carousel-inner" style="width: auto; height: 400px;">
+    <div class="carousel-item active">
+      <img src="/images/carousal-images/first-image.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/carousal-images/second-image.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/carousal-images/third-image.jpg" class="d-block w-100" alt="...">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<p class="text-center mt-5 mb-3 fs-2 fw-bold">Our Restaurants List</p>
+
+<div class="row row-cols-1 row-cols-md-5 g-2 mx-1 mb-5">
+  
+  {{#each restaurants}}
+  
+    <div class="col">
+      <div class="card h-100 w-100" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{this}}</h5>
+          <p class="card-text"></p>
+          <a href="/customer/restaurant/60b39fc90ec83c18ec9cec83" class="btn btn-success">Order Online</a>
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <p class="text-center w-100 fs-5 fw-normal">We have currently no Restaurants Registered with us, come back Later</p>
+  {{/each}}
+</div>
+

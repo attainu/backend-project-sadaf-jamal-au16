@@ -18,13 +18,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" href="/partner/signUp">Partner With Us</a>
+          <a class="nav-link active" href="/partner">Partner With Us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/customer/signUp">SignUp</a>
+          <a class="nav-link active" href="/customer">SignUp</a>
         </li>
       </ul>
     </div>
@@ -34,7 +34,7 @@
 <div class="d-flex justify-content-center">
     <div>
         <h1 class="text-center">Partner SignUp</h1>
-        <form action="/partner/dashboard" method="post">
+        <form action="/partner/signUp/partnerDashboard" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="InputRestaurantName" class="form-label">Restaurant Name</label>
                 <input type="text" name="restaurantname" class="form-control" id="InputRestaurantName" aria-describedby="nameHelp">
@@ -54,6 +54,10 @@
             <div class="mb-3">
                 <label for="InputCnfrmPassword" class="form-label">Confirm Password</label>
                 <input type="password" name="cnfrmpassword" class="form-control" id="InputCnfrmPassword">
+            </div>
+            <div class="mb-3">
+                <label for="restaurantImage" class="form-label">Upload Restaurant Image</label>
+                <input type="file" name="restaurantImage" class="form-control" id="image">
             </div>
             <button type="submit" class="btn btn-primary">SignUp</button>
         </form>

@@ -18,13 +18,13 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" href="/partner/signUp">Partner With Us</a>
+          <a class="nav-link active" href="/partner">Partner With Us</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/login">Login</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="customer/signUp">SignUp</a>
+          <a class="nav-link active" href="customer">SignUp</a>
         </li>
       </ul>
     </div>
@@ -34,7 +34,7 @@
 <div class="d-flex justify-content-center">
     <div>
         <h1 class="text-center">Sign Up</h1>
-        <form action="/customer/dashboard" method="post">
+        <form action="/customer/signUp/customerDashboard" method="post">
             <div class="mb-3">
                 <label for="InputName" class="form-label">Name</label>
                 <input type="text" name="name" class="form-control" id="InputName" aria-describedby="nameHelp">
@@ -46,10 +46,6 @@
             <div class="mb-3">
                 <label for="InputPassword" class="form-label">Password</label>
                 <input type="password" name="password" class="form-control" id="InputPassword">
-            </div>
-            <div class="mb-3">
-                <label for="InputCnfrmPassword" class="form-label">Confirm Password</label>
-                <input type="password" name="cnfrmpassword" class="form-control" id="InputCnfrmPassword">
             </div>
             <button type="submit" class="btn btn-primary">Sign Up</button>
         </form>

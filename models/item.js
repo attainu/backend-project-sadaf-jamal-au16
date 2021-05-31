@@ -16,7 +16,7 @@ const itemSchema = new schema({
       },
     imageUrl: {
       type: String,
-      required: false,
+      required: true,
     }
   });
 

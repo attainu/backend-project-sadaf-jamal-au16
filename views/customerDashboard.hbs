@@ -18,7 +18,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link active" href="/customer/dashboard">Hello, {{Name}}</a>
+          <a class="nav-link" href="#">Hello, {{customer.Name}}</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/orders">Orders</a>
@@ -27,48 +27,56 @@
           <a class="nav-link active" href="/cart">Cart</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/logout">Logout</a>
+          <a class="nav-link active" href="/customer/signOut/logout">Logout</a>
         </li>
       </ul>
     </div>
   </div>
 </nav>
 
-{{!-- add item modal --}}
-{{!-- <div class="d-grid col-2 mx-auto">
-  <button type="button" class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addItemModal">Add Item</button>
-</div>
-<div class="modal fade" id="addItemModal" tabindex="-1" aria-labelledby="addItemModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="addItemModalLabel">Add Item</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-        <form action="/add" method="POST">
-          <div class="mb-3">
-            <label for="title" class="col-form-label">Title</label>
-            <input type="text" class="form-control" id="title">
-          </div>
-          <div class="mb-3">
-            <label for="description" class="col-form-label">Description</label>
-            <input type="text" class="form-control" id="description">
-          </div>
-          <div class="mb-3">
-            <label for="price" class="col-form-label">Price</label>
-            <input type="number" class="form-control" id="price">
-          </div>
-          <div class="mb-3">
-            <label for="itemImage" class="col-form-label">Upload Item Image</label>
-            <input type="file" class="form-control" id="itemImage">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-success">Add</button>
-      </div>
+<div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+
+  <div class="carousel-inner" style="width: auto; height: 400px;">
+    <div class="carousel-item active">
+      <img src="/images/carousal-images/first-image.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/carousal-images/second-image.jpg" class="d-block w-100" alt="...">
+    </div>
+    <div class="carousel-item">
+      <img src="/images/carousal-images/third-image.jpg" class="d-block w-100" alt="...">
     </div>
   </div>
-</div> --}}
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+
+<p class="text-center mt-5 mb-3 fs-2 fw-bold">Our Restaurants List</p>
+
+<div class="row row-cols-1 row-cols-md-5 g-2 mx-1 mb-5">
+  {{#each restaurants}}
+    <div class="col">
+      <div class="card h-100 w-100" style="width: 18rem;">
+        <img src="" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">{{this}}</h5>
+          <p class="card-text"></p>
+          <a href="/customer/restaurant/60b39fc90ec83c18ec9cec83" class="btn btn-success">Order Online</a>
+        </div>
+      </div>
+    </div>
+  {{else}}
+    <p class="text-center w-100 fs-5 fw-normal">We have currently no Restaurants Registered with us, come back Later</p>
+  {{/each}}
+</div>

@@ -1,20 +1,16 @@
 const router = require('express').Router()
-const customer = require('../models/customer')
+const authRouter = require('./auth');
+const { getRestaurant } = require('../controllers/partnerController');
 
-router.get('/signUp', (req, res) => {
+router.get('/', (req, res) => {
     res.render('customerSignUp');
 })
 
-router.post('/dashboard', (req, res) => {
-    const newCustomer = new customer({
-        Name: req.body.name,
-        email: req.body.email,
-        password: req.body.password,
-        confirmPassword: req.body.cnfrmpassword
-    })
-    newCustomer.save()
-    res.render('customerDashboard', newCustomer);
-})
+router.use('/signUp', authRouter)
+
+router.use('/signOut', authRouter)
+
+router.get('/restaurant/:restId', getRestaurant)
 
 // exporting route
 module.exports = router;

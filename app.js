@@ -1,16 +1,23 @@
 // import
 const express = require('express');
+const fileUpload = require('express-fileupload');
 const expHbs = require('express-handlebars');
-const mongoose = require('mongoose');
 require("dotenv").config();
-const homeRouter = require('./routes/home')
+const mongoose = require('mongoose');
+const cloudinary = require('cloudinary').v2;
+const { getAllRestaurants } = require('./controllers/partnerController');
+const partnerRouter = require('./routes/partner');
+const loginRouter = require('./routes/login');
+const customerRouter = require('./routes/customer');
 
-// creating instance for express
+// creating instance
 const app = express();
 
 // middlewares
-app.use(express.static('public'))
+app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
+app.use(fileUpload({ useTempFiles : true }));
+
 
 // setting view engine
 app.engine('hbs', expHbs({ extname: 'hbs'}));
@@ -27,8 +34,20 @@ mongoose.connect(db, {
 .then(() => console.log("MongoDB connected successfully"))
 .catch(err => console.log(err));
 
-// Routes
-app.use('/', homeRouter)
+// configure cloidinary
+cloudinary.config({
+  cloud_name: process.env.CLOUD_NAME,
+  api_key: process.env.API_KEY,
+  api_secret: process.env.API_SECRET
+})
+
+// end points
+app.get('/', getAllRestaurants)
+
+// routes
+app.use('/partner', partnerRouter);
+app.use('/login', loginRouter);
+app.use('/customer', customerRouter);
 
 // creating a Server
 const port = process.env.PORT || 3000;

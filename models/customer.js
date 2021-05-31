@@ -14,10 +14,6 @@ const customerSchema = new schema({
             type: String,
             required: true,
         },
-        confirmPassword: {
-            type: String,
-            required: true,
-        },
 });
 
 module.exports = mongoose.model('Customer', customerSchema);
