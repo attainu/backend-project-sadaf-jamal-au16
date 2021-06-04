@@ -28,7 +28,8 @@ exports.partnerSignUp = (req, res) => {
             if (err) throw err; 
             newPartner.imageUrl = result.url;
             newPartner.save();
-            res.render('partnerDashboard', newPartner);
+            // res.render('partnerDashboard', newPartner);
+            res.render('login');
             return;
         });
     })
@@ -40,22 +41,32 @@ exports.login = (req, res) => {
         if(!user) {
             return res.status(404).send("No user found.");
         }else{
-            bcrypt.compare(req.body.password, user.password, (err, isMatching) => {
+            bcrypt.compare(req.body.password, user.password, async (err, isMatching) => {
                 if(err) throw err;
-                if(isMatching == true) {
-                    const token = jwt.sign({ accountId: user._id.toString() }, process.env.SECRET_KEY, { expiresIn: "2h" });
-                    
+                if(isMatching == true) { 
                     if(user.role == 'PARTNER') {
-                        Partner.findOne({ email: req.body.email }, (err, partner) => {
-                            res.render('partnerDashboard', partner)
-                            console.log(token)
-                            return 
-                        })
+                        const partner = await Partner.findOne({ email: req.body.email }).populate('items').lean()
+                        const token = jwt.sign({ user: user, partner: partner }, process.env.SECRET_KEY, { expiresIn: "2h" });
+                        res.cookie('auth', token, { maxAgge: 1000 * 60 * 60 * 2})
+                        res.render('partnerDashboard', partner)
+                        
                     }else{
-                        Customer.findOne({ email: req.body.email }, (err, customer) => {
-                            res.render('customerDashboard', customer)
+                        // Customer.findOne({ email: req.body.email }, async (err, customer) => {
+                        //     const restaurants = await Partner.find().lean()
+                        //     const token = jwt.sign({ user: user, customer: customer }, process.env.SECRET_KEY, { expiresIn: "2h" });
+                        //     res.cookie('auth', token)
+                        //     console.log(customer)
+                        //     res.render('customerDashboard', { Customer: customer, Restaurants: restaurants })
+                        //     return 
+
+                            const customer = await Customer.findOne({ email: req.body.email }).lean()
+                            const restaurants = await Partner.find().lean()
+                            const token = jwt.sign({ user: user, customer: customer }, process.env.SECRET_KEY, { expiresIn: "2h" });
+                            res.cookie('auth', token)
+                            res.render('customerDashboard', { Customer: customer, Restaurants: restaurants })
                             return 
-                        })
+
+                    // })
                     }
                 }else{
                     return res.status(401).send("Invalid email/password combination.");
@@ -80,10 +91,12 @@ exports.customerSignUp = (req, res) => {
             password: req.body.password
         })
         newCustomer.save()
-        res.render('customerDashboard', newCustomer)
+        // res.render('customerDashboard', newCustomer)
+        res.render('login')
     })
 }
 
 exports.signOut = (req, res) => {
-    res.render('home')
+    res.cookie('auth', 'deleted')
+    res.redirect('/')
 }

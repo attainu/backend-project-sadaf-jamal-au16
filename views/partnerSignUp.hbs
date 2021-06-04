@@ -37,27 +37,23 @@
         <form action="/partner/signUp/partnerDashboard" method="post" enctype="multipart/form-data">
             <div class="mb-3">
                 <label for="InputRestaurantName" class="form-label">Restaurant Name</label>
-                <input type="text" name="restaurantname" class="form-control" id="InputRestaurantName" aria-describedby="nameHelp">
+                <input type="text" name="restaurantname" class="form-control" id="InputRestaurantName" aria-describedby="nameHelp" required>
             </div>
             <div class="mb-3">
                 <label for="InputEmail" class="form-label">Email address</label>
-                <input type="email" name="email" class="form-control" id="InputEmail">
+                <input type="email" name="email" class="form-control" id="InputEmail" required>
             </div>
             <div class="mb-3">
                 <label for="InputAddress" class="form-label">Address</label>
-                <textarea name="address" class="form-control" id="InputAddress"></textarea>
+                <textarea name="address" class="form-control" id="InputAddress" required></textarea>
             </div>
             <div class="mb-3">
                 <label for="InputPassword" class="form-label">Password</label>
-                <input type="password" name="password" class="form-control" id="InputPassword">
-            </div>
-            <div class="mb-3">
-                <label for="InputCnfrmPassword" class="form-label">Confirm Password</label>
-                <input type="password" name="cnfrmpassword" class="form-control" id="InputCnfrmPassword">
+                <input type="password" name="password" class="form-control" id="InputPassword" required>
             </div>
             <div class="mb-3">
                 <label for="restaurantImage" class="form-label">Upload Restaurant Image</label>
-                <input type="file" name="restaurantImage" class="form-control" id="image">
+                <input type="file" name="restaurantImage" class="form-control" id="image" required>
             </div>
             <button type="submit" class="btn btn-primary">SignUp</button>
         </form>

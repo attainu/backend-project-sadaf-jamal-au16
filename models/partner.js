@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const schema = mongoose.Schema;
+const { Item } = require("./item")
 
 const partnerSchema = new schema({
     restaurantName: {
@@ -22,9 +23,14 @@ const partnerSchema = new schema({
         {
           type: String,
           required: true,
-        },
+        }
     ],
-    items: []
+    items: [
+        {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "Item"
+        }
+    ]
 });
 
 module.exports = mongoose.model('Partner', partnerSchema);

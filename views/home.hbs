@@ -53,14 +53,14 @@
 <div class="row row-cols-1 row-cols-md-5 g-2 mx-1 mb-5">
   
   {{#each restaurants}}
-  
     <div class="col">
       <div class="card h-100 w-100" style="width: 18rem;">
-        <img src="" class="card-img-top" alt="...">
+        <img src="{{this.imageUrl}}" class="card-img-top" alt="...">
         <div class="card-body">
-          <h5 class="card-title">{{this}}</h5>
-          <p class="card-text"></p>
-          <a href="/customer/restaurant/60b39fc90ec83c18ec9cec83" class="btn btn-success">Order Online</a>
+          <h5 class="card-title">{{this.restaurantName}}</h5>
+          <p class="card-text"><strong>Email: </strong>{{this.email}}</p>
+          <p class="card-text"><strong>Address: </strong>{{this.address}}</p>
+          <a href="/restaurant/{{this._id}}" class="btn btn-success">Order Online</a>
         </div>
       </div>
     </div>
@@ -68,4 +68,3 @@
     <p class="text-center w-100 fs-5 fw-normal">We have currently no Restaurants Registered with us, come back Later</p>
   {{/each}}
 </div>
-

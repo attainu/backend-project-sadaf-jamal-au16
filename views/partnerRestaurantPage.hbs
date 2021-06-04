@@ -10,10 +10,10 @@
           <a class="nav-link" href="#">Partner Dashboard</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active" href="/partner/orders">Orders</a>
+          <a class="nav-link active" href="/customer/orders">Orders</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link active logout" href="#">Logout</a>
+          <a class="nav-link active" href="/customer/signOut/logout">Logout</a>
         </li>
       </ul>
     </div>
@@ -30,7 +30,6 @@
         <h5 class="card-title">{{restaurantName}}</h5>
         <p class="card-text">Email: {{email}}</p>
         <p class="card-text">Address: {{address}}</p>
-        <p class="card-text"><small class="text-muted">Note: Hungry holds all Rights to remove partner in case of misuse of platform</small></p>
       </div>
     </div>
   </div>
@@ -45,32 +44,11 @@
           <h5 class="card-title">{{this.title}}</h5>
           <p class="card-text"><strong>Description: </strong>{{this.description}}</p>
           <p class="card-text"><strong>Price: </strong>{{this.price}}</p>
-          <a href="/partner/item/edit/{{this._id}}" class="btn btn-success">Edit Item</a>
-          <a href="/partner/item/delete/{{this._id}}" class="btn btn-danger">Delete Item</a>
+          <a href="#" class="btn btn-success">Add to Cart</a>
         </div>
       </div>
     </div>
   {{else}}
-    <p class="text-center w-100 fs-4 fw-bolder">no items listed for your restaurant</p>
+    <p class="text-center w-100 fs-4 fw-bolder">no items listed for above restaurant</p>
   {{/each}}
 </div>
-
-<div class="d-flex justify-content-center">
-  <a href="/partner/item" class="btn btn-success btn-lg" tabindex="-1" role="button">Add Item</a>
-</div>
-
-{{!-- <script>
-  const logOutBtn = document.querySelectorAll('.logout')[0]
-
-  logOutBtn.addEventListener('click', () => {
-    
-    var res = document.cookie;
-    var multiple = res.split(";");
-    for(var i = 0; i < multiple.length; i++) {
-        var key = multiple[i].split("=");
-        document.cookie = key[0]+" =; expires = Thu, 01 Jan 1970 00:00:00 UTC";
-    }
-    window.location.replace("/")
-
-  })
-</script> --}}

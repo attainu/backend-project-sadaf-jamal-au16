@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="/">
+      <img
+        src="/images/navbar-image/burger.png"
+        alt="logo"
+        class="d-inline-block align-text-top"
+        width="30"
+        height="24"
+      />
+      Hungry
+    </a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Hello, {{customer.Name}}</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/customer/orders">Orders</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/customer/cart">Cart</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/customer/signOut/logout">Logout</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<div class="d-flex justify-content-around">
+  <div class="mt-4">
+    Cart(no of items) this is not from db
+    <div class="card mb-3" style="max-width: 540px;">
+      <div class="row g-0">
+        <div class="col-md-4">
+          <img src="..." alt="..." />
+        </div>
+        <div class="col-md-8">
+          <div class="card-body">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below
+              as a natural lead-in to additional content. This content is a
+              little bit longer.</p>
+            <p class="card-text"><small class="text-muted">Last updated 3 mins
+                ago</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card mt-5 card text-dark bg-light" style="max-width: 18rem;">
+    <div class="card-body">
+      <h5 class="card-title">Total Amount</h5>
+      <p class="card-text">Initial Amount</p>
+      <p class="card-text">Delivery Charge</p>
+      <hr />
+      <p class="card-text">Grand Total</p>
+      <a href="#" class="btn btn-primary">Proceed to Checkout</a>
+    </div>
+  </div>
+</div>

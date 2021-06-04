@@ -1,19 +1,22 @@
 // import
 const express = require('express');
+const cookieParser = require('cookie-parser')
 const fileUpload = require('express-fileupload');
 const expHbs = require('express-handlebars');
 require("dotenv").config();
 const mongoose = require('mongoose');
 const cloudinary = require('cloudinary').v2;
-const { getAllRestaurants } = require('./controllers/partnerController');
+const { getAllRestaurants, getRestaurant } = require('./controllers/partnerController');
 const partnerRouter = require('./routes/partner');
 const loginRouter = require('./routes/login');
 const customerRouter = require('./routes/customer');
+const { authenticateUser } = require('./middleware/authMiddleware')
 
 // creating instance
 const app = express();
 
 // middlewares
+app.use(cookieParser())
 app.use(express.static('public'));
 app.use(express.urlencoded({ extended: true }));
 app.use(fileUpload({ useTempFiles : true }));
@@ -43,6 +46,7 @@ cloudinary.config({
 
 // end points
 app.get('/', getAllRestaurants)
+app.get('/restaurant/:restId', getRestaurant)
 
 // routes
 app.use('/partner', partnerRouter);
