@@ -46,27 +46,19 @@ exports.login = (req, res) => {
                 if(isMatching == true) { 
                     if(user.role == 'PARTNER') {
                         const partner = await Partner.findOne({ email: req.body.email }).populate('items').lean()
+
                         const token = jwt.sign({ user: user, partner: partner }, process.env.SECRET_KEY, { expiresIn: "2h" });
                         res.cookie('auth', token, { maxAgge: 1000 * 60 * 60 * 2})
                         res.render('partnerDashboard', partner)
                         
                     }else{
-                        // Customer.findOne({ email: req.body.email }, async (err, customer) => {
-                        //     const restaurants = await Partner.find().lean()
-                        //     const token = jwt.sign({ user: user, customer: customer }, process.env.SECRET_KEY, { expiresIn: "2h" });
-                        //     res.cookie('auth', token)
-                        //     console.log(customer)
-                        //     res.render('customerDashboard', { Customer: customer, Restaurants: restaurants })
-                        //     return 
-
-                            const customer = await Customer.findOne({ email: req.body.email }).lean()
+                        Customer.findOne({ email: req.body.email }, async (err, customer) => {
                             const restaurants = await Partner.find().lean()
                             const token = jwt.sign({ user: user, customer: customer }, process.env.SECRET_KEY, { expiresIn: "2h" });
                             res.cookie('auth', token)
                             res.render('customerDashboard', { Customer: customer, Restaurants: restaurants })
                             return 
-
-                    // })
+                        })
                     }
                 }else{
                     return res.status(401).send("Invalid email/password combination.");

@@ -13,7 +13,7 @@ const customerSchema = new schema({
         password: {
             type: String,
             required: true,
-        },
+        }
 });
 
 module.exports = mongoose.model('Customer', customerSchema);

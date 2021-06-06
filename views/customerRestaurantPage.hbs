@@ -7,7 +7,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0 ">
         <li class="nav-item">
-          <a class="nav-link" href="#">Hello, {{Customer.Name}}</a>
+          <a class="nav-link" href="#">Hello,</a>
         </li>
         <li class="nav-item">
           <a class="nav-link active" href="/customer/orders">Orders</a>
@@ -18,6 +18,9 @@
         <li class="nav-item">
           <a class="nav-link active" href="/customer/signOut/logout">Logout</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link active" href="/customer/cart">Checkout</a>
+        </li>
       </ul>
     </div>
   </div>
@@ -26,20 +29,20 @@
 <div class="card mb-3 w-100">
   <div class="row g-0">
     <div class="col-md-4">
-      <img src="{{Restaurant.imageUrl}}" alt="restaurant image" class="w-100">
+      <img src="{{imageUrl}}" alt="restaurant image" class="w-100">
     </div>
     <div class="col-md-8">
       <div class="card-body">
-        <h5 class="card-title">{{Restaurant.restaurantName}}</h5>
-        <p class="card-text">Email: {{Restaurant.email}}</p>
-        <p class="card-text">Address: {{Restaurant.address}}</p>
+        <h5 class="card-title">{{restaurantName}}</h5>
+        <p class="card-text">Email: {{email}}</p>
+        <p class="card-text">Address: {{address}}</p>
       </div>
     </div>
   </div>
 </div>
 
 <div class="row row-cols-1 row-cols-md-5 g-2 mx-1 mb-5">
-  {{#each Restaurant.items}}
+  {{#each items}}
     <div class="col">
       <div class="card h-100 w-100" style="width: 18rem;">
         <img src="{{this.imageUrl}}" class="card-img-top" alt="...">

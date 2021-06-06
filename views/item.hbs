@@ -33,29 +33,30 @@
 
 <div class="d-flex justify-content-center">
     <div>
-        <form action="/partner/item/add" method="POST" id="additemForm" enctype="multipart/form-data">
-            <div class="mb-3">
-                <label for="title" class="col-form-label">Title</label>
-                <input type="text" name="title" class="form-control" id="title">
-            </div>
-                <div class="mb-3">
-                <label for="description" class="col-form-label">Description</label>
-                <input type="text" name="description" class="form-control" id="description">
-            </div>
-            <div class="mb-3">
+      <h1>Add Item</h1>
+      <form action="/partner/item/add" method="POST" id="additemForm" enctype="multipart/form-data">
+          <div class="mb-3">
+              <label for="title" class="col-form-label">Title</label>
+              <input type="text" name="title" class="form-control" id="title">
+          </div>
+          <div class="mb-3">
+              <label for="description" class="col-form-label">Description</label>
+              <input type="text" name="description" class="form-control" id="description">
+          </div>
+          <div class="mb-3">
                 <label for="price" class="col-form-label">Price</label>
                 <input type="number" name="price" class="form-control" id="price">
-            </div>
-                <div class="mb-3">
-                <label for="itemImage" class="col-form-label">Upload Item Image</label>
-                <input type="file" name="itemImage" class="form-control" id="itemImage">
-            </div>
-                <div class="modal-footer">
-                <button type="submit" class="btn btn-success" id="#btnSubmit">Add</button>
-                <a href="/partner/Dashboard" class="btn btn-danger" tabindex="-1" role="button">Cancel</a>
-                {{!-- <button type="button" class="btn btn-danger">Cancel</button> --}}
-            </div>
-        </form> 
+          </div>
+              <div class="mb-3">
+              <label for="itemImage" class="col-form-label">Upload Item Image</label>
+              <input type="file" name="itemImage" class="form-control" id="itemImage">
+          </div>
+              <div class="modal-footer">
+              <button type="submit" class="btn btn-success" id="#btnSubmit">Add</button>
+              <a href="/partner/Dashboard" class="btn btn-danger" tabindex="-1" role="button">Cancel</a>
+              {{!-- <button type="button" class="btn btn-danger">Cancel</button> --}}
+          </div>
+      </form> 
     </div>
 </div>
 

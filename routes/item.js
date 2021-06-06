@@ -4,7 +4,7 @@ const { authenticateUser } = require("../middleware/authMiddleware");
 
 router.post('/add', authenticateUser, addItem);
 
-router.get('/edit/:itemId', authenticateUser, editItem);
+router.post('/edit', authenticateUser, editItem);
 
 router.get('/delete/:itemId', authenticateUser, deleteItem)
 

@@ -10,6 +10,7 @@ const { getAllRestaurants, getRestaurant } = require('./controllers/partnerContr
 const partnerRouter = require('./routes/partner');
 const loginRouter = require('./routes/login');
 const customerRouter = require('./routes/customer');
+const paymentRouter = require('./routes/payment');
 const { authenticateUser } = require('./middleware/authMiddleware')
 
 // creating instance
@@ -52,6 +53,7 @@ app.get('/restaurant/:restId', getRestaurant)
 app.use('/partner', partnerRouter);
 app.use('/login', loginRouter);
 app.use('/customer', customerRouter);
+app.use('', paymentRouter);
 
 // creating a Server
 const port = process.env.PORT || 3000;
